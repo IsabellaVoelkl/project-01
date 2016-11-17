@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.tip.js"></script>
+<script src="data_AlphaPhi.js"></script>
+<script src="data_SigmaKappa.js"></script>
+<script src="courses_graph.js"></script>
+<link rel="stylesheet" href="styles-example.css">
+<body>
+<div id="targetAphi"></div>
+<div id="targetSK"></div>
+<div id="targetAChiO"></div>
+<div id="targetPiPhi"></div>
+</body>
+<script>
+
+
+function AlphaPhi(){
+
+     // pass in html to add to page
+     // return element containing new HTML function 
+     document.getElementById('targetAphi').innerHTML = APhi;
+     var listAPhi = document.getElementsByTagName('p');
+     listAPhi = Array.prototype.slice.call(listAPhi);
+     console.log(listAPhi);
+
+     //make sentence arrays
+     var sectionsAPhi = listAPhi.map(function(node){
+          return node.innerText;
+     });
+     console.log(sectionsAPhi);
+
+     // filter out punctuation/numbers, make words array 
+     var wordsAPhi = sectionsAPhi.map(function(node){
+          return node.toLowerCase().match(/([a-z]+)/g);
+
+     });
+     console.log(wordsAPhi);
+
+     // return flat words array 
+     var wordsFlatAPhi = wordsAPhi.reduce(function(previous, current){
+          return previous.concat(current);
+     });
+
+     //get rid of null values
+     for(j=1;j<wordsFlatAPhi.length;j++){
+          if(wordsFlatAPhi[j] === null){
+               wordsFlatAPhi.splice(j,1);
+             j = j-1;
+          }
+     }
+
+     //get rid of 3 letter words
+     for(i=1;i<wordsFlatAPhi.length;i++){
+          if (wordsFlatAPhi[i].length<4){ 
+               wordsFlatAPhi.splice(i,1);
+               i = i-1;
+          }
+     }
+     console.log(wordsFlatAPhi);
+
+}
+
+
+function SigmaKappa(){
+
+     document.getElementById('targetSK').innerHTML = SK;
+     var listSK = document.getElementsByTagName('p');
+     listSK = Array.prototype.slice.call(listSK);
+
+     //make sentence arrays
+     var sectionsSK = listSK.map(function(node){
+          return node.innerText;
+     });
+     console.log(sectionsSK);
+
+
+     // filter out punctuation/numbers, make words array 
+     var wordsSK = sectionsSK.map(function(node){
+          return node.toLowerCase().match(/([a-z]+)/g);
+     });
+     console.log(wordsSK);
+
+
+     //flatten the array
+     var wordsFlatSK = wordsSK.reduce(function(previous, current){
+          return previous.concat(current);
+     });
+
+
+     //get rid of null values
+     for(j=1;j<wordsFlatSK.length;j++){
+          if(wordsFlatSK[j] === null){
+               wordsFlatSK.splice(j,1);
+             j = j-1;
+          }
+     }
+
+
+     //get rid of 3 letter words
+     for(i=1;i<wordsFlatSK.length;i++){
+          if (wordsFlatSK[i].length<4){ 
+               wordsFlatSK.splice(i,1);
+               i = i-1;
+          }
+     }
+     console.log(wordsFlatSK);
+
+}
+
+
+function AlphaChiOmega(){
+
+     // pass in html to add to page
+     // return element containing new HTML function 
+     document.getElementById('targetAChiO').innerHTML = AChiO;
+     var listAChiO = document.getElementsByTagName('p');
+     listAChiO = Array.prototype.slice.call(listAChiO);
+     console.log(listAChiOhi);
+
+     //make sentence arrays
+     var sectionsAChiO = listAChiO.map(function(node){
+          return node.innerText;
+     });
+     console.log(sectionsAChiO);
+
+     // filter out punctuation/numbers, make words array 
+     var wordsAChiO = sectionsAChiO.map(function(node){
+          return node.toLowerCase().match(/([a-z]+)/g);
+     });
+     console.log(wordsAChiO);
+
+     // return flat words array 
+     var wordsFlatAChiO = wordsAChiO.reduce(function(previous, current){
+          return previous.concat(current);
+     });
+
+     //get rid of null values
+     for(j=1;j<wordsFlatAChiO.length;j++){
+          if(wordsFlatAChiO[j] === null){
+               wordsFlatAChiO.splice(j,1);
+             j = j-1;
+          }
+     }
+
+     //get rid of 3 letter words
+     for(i=1;i<wordsFlatAChiO.length;i++){
+          if (wordsFlatAChiO[i].length<4){ 
+               wordsFlatAChiO.splice(i,1);
+               i = i-1;
+          }
+     }
+     console.log(wordsFlatAChiO);
+
+}
+
+
+
+
+function PiBetaPhi(){
+
+     // pass in html to add to page
+     // return element containing new HTML function 
+     document.getElementById('targetPiPhi').innerHTML = PiPhi;
+     var listPiPhi = document.getElementsByTagName('p');
+     listPiPhi = Array.prototype.slice.call(listPiPhi);
+     console.log(listPiPhi);
+
+     //make sentence arrays
+     var sectionsPiPhi = listPiPhi.map(function(node){
+          return node.innerText;
+     });
+     console.log(sectionsPiPhi);
+
+     // filter out punctuation/numbers, make words array 
+     var wordsPiPhi = sectionsPiPhi.map(function(node){
+          return node.toLowerCase().match(/([a-z]+)/g);
+
+     });
+     console.log(wordsPiPhi);
+
+     // return flat words array 
+     var wordsFlatPiPhi = wordsPiPhi.reduce(function(previous, current){
+          return previous.concat(current);
+     });
+
+     //get rid of null values
+     for(j=1;j<wordsFlatPiPhi.length;j++){
+          if(wordsFlatPiPhi[j] === null){
+               wordsFlatPiPhi.splice(j,1);
+             j = j-1;
+          }
+     }
+
+     //get rid of 3 letter words
+     for(i=1;i<wordsFlatPiPhi.length;i++){
+          if (wordsFlatPiPhi[i].length<4){ 
+               wordsFlatPiPhi.splice(i,1);
+               i = i-1;
+          }
+     }
+     console.log(wordsFlatPiPhi);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+//Question 7. - Calculate word scores
+// pass in the flat words array 
+// return word scores
+// count the word frequency 
+var scores = wordsFlat.reduce(function(previous,current){
+
+     if(current in previous){
+          previous[current] += 1;
+     }
+     else{
+          previous[current] = 1;
+     }
+     return previous;
+}, {});
+
+graph();
+*/
+
+</script>
+</html>
+
+

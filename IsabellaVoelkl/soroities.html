@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.tip.js"></script>
+<script src="data_AlphaPhi.js"></script>
+<script src="courses_graph.js"></script>
+<link rel="stylesheet" href="styles-example.css">
+<body>
+<div id="target"></div>
+</body>
+<script>
+
+
+
+// pass in html to add to page
+// return element containing new HTML function 
+document.getElementById('target').innerHTML = AlphaPhi;
+var list = document.getElementsByTagName('p');
+list = Array.prototype.slice.call(list);
+console.log(list);
+
+
+//make sentence arrays
+var sections = list.map(function(node){
+
+     return node.innerText;
+});
+console.log(sections);
+
+
+
+// pass in sections
+// return words
+// filter out punctuation/numbers, make words array 
+//filter titles
+var words = sections.map(function(node){
+
+     return node.toLowerCase().match(/([a-z]+)/g);
+
+});
+console.log(words);
+
+
+//flatten the array
+// return flat words array 
+// flatten the 2D words array function
+var wordsFlat = words.reduce(function(previous, current){
+     return previous.concat(current);
+});
+
+
+//get rid of null values
+for(j=1;j<wordsFlat.length;j++){
+	if(wordsFlat[j] === null){
+		wordsFlat.splice(j,1);
+        j = j-1;
+	}
+}
+
+//get rid of 3 letter words
+for(i=1;i<wordsFlat.length;i++){
+     if (wordsFlat[i].length<4){ 
+          wordsFlat.splice(i,1);
+          i = i-1;
+     }
+}
+console.log(wordsFlat);
+
+
+
+//Question 7. - Calculate word scores
+// pass in the flat words array 
+// return word scores
+// count the word frequency 
+var scores = wordsFlat.reduce(function(previous,current){
+
+     if(current in previous){
+          previous[current] += 1;
+     }
+     else{
+          previous[current] = 1;
+     }
+     return previous;
+}, {});
+
+graph();
+
+
+</script>
+</html>
+
+
